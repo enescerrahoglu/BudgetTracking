@@ -38,15 +38,13 @@ class AuthenticationViewModel : ViewModel() {
         }
     }
 
-    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential, auth: FirebaseAuth, activity: Activity, view: View, context:Context, phoneNumber: String) {
+    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential, auth: FirebaseAuth, activity: Activity, view: View, context:Context) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(activity) { task ->
                 if (task.isSuccessful) {
-                    activity?.let{
-                        val action = VerifyFragmentDirections.actionVerifyFragmentToIndicatorActivity()
-                        Navigation.findNavController(view).navigate(action)
-                        activity.finish()
-                    }
+                    val action = VerifyFragmentDirections.actionVerifyFragmentToIndicatorActivity()
+                    Navigation.findNavController(view).navigate(action)
+                    activity.finish()
                 } else {
                     isLoading.value = false
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {

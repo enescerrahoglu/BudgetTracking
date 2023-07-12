@@ -17,22 +17,22 @@ class NavigationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        loadFragment(HomeFragment())
+        loadFragment(HomeFragment(), "Home")
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     if (binding.bottomNavigation.selectedItemId == R.id.home) {
                         false
                     } else {
-                        loadFragment(HomeFragment())
+                        loadFragment(HomeFragment(), "Home")
                         true
                     }
                 }
-                R.id.new_post -> {
-                    if (binding.bottomNavigation.selectedItemId == R.id.new_post) {
+                R.id.wallet -> {
+                    if (binding.bottomNavigation.selectedItemId == R.id.wallet) {
                         false
                     } else {
-                        loadFragment(WalletFragment())
+                        loadFragment(WalletFragment(), "Wallet")
                         true
                     }
                 }
@@ -40,20 +40,23 @@ class NavigationActivity : AppCompatActivity() {
                     if (binding.bottomNavigation.selectedItemId == R.id.profile) {
                         false
                     } else {
-                        loadFragment(ProfileFragment())
+                        loadFragment(ProfileFragment(), "Profile")
                         true
                     }
                 }
                 else -> {
-                    loadFragment(HomeFragment())
+                    loadFragment(HomeFragment(),"Home")
                     true
                 }
             }
         }
     }
-    private  fun loadFragment(fragment: Fragment){
+    private  fun loadFragment(fragment: Fragment, title: String){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frameLayout,fragment)
         transaction.commit()
+        supportActionBar?.let {
+            supportActionBar!!.title = title
+        }
     }
 }

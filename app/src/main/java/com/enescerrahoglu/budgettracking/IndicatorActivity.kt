@@ -17,6 +17,8 @@ class IndicatorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIndicatorBinding
     private lateinit var viewModel: UserViewModel
 
+    private var user : UserModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIndicatorBinding.inflate(layoutInflater)
@@ -31,12 +33,14 @@ class IndicatorActivity : AppCompatActivity() {
         finish()
 
         viewModel = ViewModelProvider(this)[UserViewModel::class.java]
-        val user = viewModel.getUser()
-        println(viewModel.a.toString())
+
+        /*user = viewModel.getUser()
+        user?.let {
+            println(user!!.phoneNumber)
+        }*/
 
         observeData()
 
-        println(viewModel.getUser()?.phoneNumber)
         viewModel.userModel.value?.let {
             println(viewModel.userModel.value!!.phoneNumber)
             viewModel.hasUser(it.phoneNumber){ hasUser ->
@@ -46,12 +50,12 @@ class IndicatorActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
-    fun observeData(){
+    private fun observeData(){
         viewModel.userModel.observe(this, Observer { data ->
-            println(data?.phoneNumber)
+            user = data
+            println("phone: ${user?.phoneNumber}")
         })
     }
 }

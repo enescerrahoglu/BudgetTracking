@@ -8,8 +8,6 @@ class UserViewModel : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
     private val usersCollection = firestore.collection("users")
     val userModel = MutableLiveData<UserModel>()
-    var a: Int = 5
-
 
     fun setUser(user: UserModel) {
         userModel.value = user
@@ -37,7 +35,7 @@ class UserViewModel : ViewModel() {
     fun createUser() {
         println("userModel.value?.phoneNumber")
         userModel.value?.let {
-            userModel.value = UserModel(it.phoneNumber, null, null, Timestamp.now())
+            userModel.value = UserModel(it.phoneNumber, null, null,0.0, Timestamp.now())
             usersCollection.document(it.phoneNumber).set(it)
                 .addOnSuccessListener {
                     println("Success")

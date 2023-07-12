@@ -18,8 +18,8 @@ import com.google.firebase.auth.PhoneAuthCredential
 
 class PhoneNumberFragment : Fragment() {
     private var _binding: FragmentPhoneNumberBinding? = null
-    private lateinit var viewModel: AuthenticationViewModel
     private val binding get() = _binding!!
+    private lateinit var viewModel: AuthenticationViewModel
     private lateinit var auth : FirebaseAuth
     lateinit var storedVerificationId:String
     lateinit var resendToken: PhoneAuthProvider.ForceResendingToken

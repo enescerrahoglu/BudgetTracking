@@ -14,4 +14,17 @@
         android:id="@+id/navigationActivity2"
         android:name="com.enescerrahoglu.budgettracking.NavigationActivity"
         android:label="NavigationActivity" />
+    <activity
+        android:id="@+id/updateProfileActivity"
+        android:name="com.enescerrahoglu.budgettracking.user.UpdateProfileActivity"
+        android:label="UpdateProfileActivity" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.enescerrahoglu.budgettracking.user.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileActivity"
+            app:destination="@id/updateProfileActivity" />
+    </fragment>
 </navigation>
