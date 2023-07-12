@@ -6,7 +6,7 @@
         android:icon="@drawable/house"
         android:title="Home"/>
     <item
-        android:id="@+id/new_post"
+        android:id="@+id/wallet"
         android:enabled="true"
         android:icon="@drawable/wallet"
         android:title="Wallet"/>

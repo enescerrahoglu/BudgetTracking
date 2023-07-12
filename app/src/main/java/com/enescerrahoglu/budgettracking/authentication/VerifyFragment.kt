@@ -50,8 +50,7 @@ class VerifyFragment : Fragment() {
         authenticationViewModel = ViewModelProviders.of(this)[AuthenticationViewModel::class.java]
         //userViewModel = ViewModelProviders.of(this)[UserViewModel::class.java]
         userViewModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
-        userViewModel.a = 10
-        println(userViewModel.a.toString())
+
         observeLoadingData()
 
         binding.verifyButton.setOnClickListener {
@@ -59,11 +58,11 @@ class VerifyFragment : Fragment() {
             if(enteredCode.isNotEmpty()){
                 authenticationViewModel.setLoading(true)
 
-                var userModel = UserModel(phoneNumber, null, null, null)
+                var userModel = UserModel(phoneNumber, null, null, 0.0,null)
                 userViewModel.setUser(userModel)
 
                 val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(storedVerificationId, enteredCode)
-                authenticationViewModel.signInWithPhoneAuthCredential(credential, auth, requireActivity(), requireView(), requireContext(), phoneNumber)
+                authenticationViewModel.signInWithPhoneAuthCredential(credential, auth, requireActivity(), requireView(), requireContext())
             }else{
                 Toast.makeText(requireContext(),"Enter OTP",Toast.LENGTH_SHORT).show()
             }
