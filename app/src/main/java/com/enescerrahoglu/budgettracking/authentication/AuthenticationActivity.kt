@@ -1,4 +1,4 @@
-package com.enescerrahoglu.budgettracking.view
+package com.enescerrahoglu.budgettracking.authentication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

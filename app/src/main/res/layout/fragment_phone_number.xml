@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.AuthenticationActivity">
+    tools:context=".authentication.AuthenticationActivity">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -64,16 +64,31 @@
 
         </LinearLayout>
 
+        <CheckBox
+            android:id="@+id/forgetMeCheckBox"
+            android:text="Forget me"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:gravity="center"
             android:orientation="horizontal">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:visibility="gone"
+                android:indeterminateTint="@color/white"
+                android:layout_margin="6dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
             <TextView
                 android:id="@+id/sendButton"
+                android:background="@drawable/button_background"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@drawable/button_background"
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
@@ -83,7 +98,6 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
     </LinearLayout>
 
