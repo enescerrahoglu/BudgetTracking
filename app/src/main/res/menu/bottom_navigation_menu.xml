@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/house"
+        android:title="Home"/>
+    <item
+        android:id="@+id/new_post"
+        android:enabled="true"
+        android:icon="@drawable/wallet"
+        android:title="New Post"/>
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/user"
+        android:title="Profile"/>
+</menu>
