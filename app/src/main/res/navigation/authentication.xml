@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/phoneNumberFragment"
-        android:name="com.enescerrahoglu.budgettracking.view.PhoneNumberFragment"
+        android:name="com.enescerrahoglu.budgettracking.authentication.PhoneNumberFragment"
         android:label="PhoneNumberFragment" >
         <action
             android:id="@+id/action_phoneNumberFragment_to_verifyFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/verifyFragment"
-        android:name="com.enescerrahoglu.budgettracking.view.VerifyFragment"
+        android:name="com.enescerrahoglu.budgettracking.authentication.VerifyFragment"
         android:label="VerifyFragment" >
         <action
             android:id="@+id/action_verifyFragment_to_phoneNumberFragment"
@@ -27,12 +27,17 @@
             android:name="phoneNumber"
             app:argType="string" />
         <action
-            android:id="@+id/action_verifyFragment_to_navigationActivity"
-            app:destination="@id/navigationActivity" />
+            android:id="@+id/action_verifyFragment_to_indicatorActivity"
+            app:destination="@id/indicatorActivity" />
     </fragment>
     <activity
         android:id="@+id/navigationActivity"
-        android:name="com.enescerrahoglu.budgettracking.view.NavigationActivity"
+        android:name="com.enescerrahoglu.budgettracking.NavigationActivity"
         android:label="activity_navigation"
         tools:layout="@layout/activity_navigation" />
+    <activity
+        android:id="@+id/indicatorActivity"
+        android:name="com.enescerrahoglu.budgettracking.IndicatorActivity"
+        android:label="activity_indicator"
+        tools:layout="@layout/activity_indicator" />
 </navigation>
