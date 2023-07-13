@@ -7,7 +7,9 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
+import com.enescerrahoglu.budgettracking.user.UserModel
 import com.google.firebase.auth.*
+import com.google.gson.Gson
 import java.util.concurrent.TimeUnit
 
 class AuthenticationViewModel : ViewModel() {
@@ -38,11 +40,15 @@ class AuthenticationViewModel : ViewModel() {
         }
     }
 
-    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential, auth: FirebaseAuth, activity: Activity, view: View, context:Context) {
+    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential, auth: FirebaseAuth, activity: Activity, view: View, context:Context, phoneNumber:String) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(activity) { task ->
                 if (task.isSuccessful) {
-                    val action = VerifyFragmentDirections.actionVerifyFragmentToIndicatorActivity()
+                    val user = UserModel(phoneNumber, null, null, 0.0)
+                    val gson = Gson()
+                    val json = gson.toJson(user)
+
+                    val action = VerifyFragmentDirections.actionVerifyFragmentToIndicatorActivity(json)
                     Navigation.findNavController(view).navigate(action)
                     activity.finish()
                 } else {

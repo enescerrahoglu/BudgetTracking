@@ -54,24 +54,10 @@
                     android:textColor="?android:textColorPrimary"
                     app:drawableStartCompat="@drawable/ic_turkish_lira_sign"
                     app:drawableTint="?android:textColorPrimaryDisableOnly" />
-
-                <TextView
-                    android:id="@+id/budgetUSDTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="5dp"
-                    android:padding="10dp"
-                    android:text="100"
-                    android:gravity="right"
-                    android:layout_gravity="right"
-                    android:textColor="?android:textColorPrimary"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/ic_dollar_sign"
-                    app:drawableTint="?android:textColorPrimaryDisableOnly" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -80,11 +66,11 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:layout_margin="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/circularProgressBarTextView"
@@ -102,6 +88,5 @@
 
         </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

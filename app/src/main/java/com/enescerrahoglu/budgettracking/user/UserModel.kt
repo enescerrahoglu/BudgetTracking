@@ -1,6 +1,5 @@
 package com.enescerrahoglu.budgettracking.user
 
-import com.google.firebase.Timestamp
+import android.os.Parcelable
 
-data class UserModel(val phoneNumber: String, val firstName: String?, val lastName: String?, val monthlyBudget: Double, val joinDate: Timestamp?) {
-}
+data class UserModel(val phoneNumber: String, val firstName: String?, val lastName: String?, val monthlyBudget: Double?)

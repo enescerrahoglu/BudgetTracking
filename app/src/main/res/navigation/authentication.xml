@@ -39,5 +39,9 @@
         android:id="@+id/indicatorActivity"
         android:name="com.enescerrahoglu.budgettracking.IndicatorActivity"
         android:label="activity_indicator"
-        tools:layout="@layout/activity_indicator" />
+        tools:layout="@layout/activity_indicator" >
+        <argument
+            android:name="userModel"
+            app:argType="string" />
+    </activity>
 </navigation>
