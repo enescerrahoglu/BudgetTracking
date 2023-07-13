@@ -18,9 +18,9 @@ import com.google.firebase.auth.PhoneAuthProvider
 
 class VerifyFragment : Fragment() {
     private var _binding: FragmentVerifyBinding? = null
+    private val binding get() = _binding!!
     private lateinit var authenticationViewModel: AuthenticationViewModel
     private lateinit var userViewModel: UserViewModel
-    private val binding get() = _binding!!
 
     private var storedVerificationId = ""
     private var phoneNumber = ""
