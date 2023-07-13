@@ -10,7 +10,7 @@ class CurrencyViewModel : ViewModel() {
     val currencyList = MutableLiveData<List<Currency>>()
 
     fun fetchCurrencyData() {
-        val url = "https://api.currencyapi.com/v3/latest?apikey=h60lwkZYtxpkY3yK2CY3ydEBKHG3B0htQ2tPiDyp"
+        val url = "https://api.currencyapi.com/v3/latest?apikey=API_KEY"
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()
 
